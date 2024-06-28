@@ -1,0 +1,4 @@
+[format]
+quote_style = "double"
+docstring-code-format = true
+line-ending = "lf"
