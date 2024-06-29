@@ -1,4 +1,4 @@
 [format]
-quote_style = "double"
+quote-style = "double"
 docstring-code-format = true
 line-ending = "lf"
