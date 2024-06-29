@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynote"
+authors = [
+  { name = "Unkn0wnN4m3", email = "87839850+Unkn0wnN4m3@users.noreply.github.com" },
+]
+description = "cli application to taking notes"
+readme = "README.md"
+version = "0.1.0"
+dependencies = [
+  "Click"
+]
+requires-python = ">= 3.10"
+keywords = ["cli", "python-cli", "notes", "click"]
+classifiers = [
+  "Programming Language :: Python",
+  "Intended Audience :: Developers",
+]
+
+[project.urls]
+Homepage = "https://github.com/Unkn0wnN4m3/quicknote-cli"
+Repository = "https://github.com/Unkn0wnN4m3/quicknote-cli"
+Issues = "https://github.com/Unkn0wnN4m3/quicknote-cli/issues"
+
+[project.scripts]
+pynote = "pynote.__main__:main"
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
