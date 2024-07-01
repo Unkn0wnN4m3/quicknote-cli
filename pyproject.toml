@@ -49,7 +49,6 @@ path = "src/pynote/__about__.py"
 packages = ["src/pynote"]
 
 [tool.hatch.envs.devel]
-template = "ruff"
 features = ["dev"]
 
 [tool.hatch.envs.ruff]
