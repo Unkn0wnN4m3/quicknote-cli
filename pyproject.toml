@@ -1,33 +1,70 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "pynote"
+dynamic = ["version"]
+description = 'command line note taking application'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = ["cli", "python-cli", "notes", "click"]
 authors = [
   { name = "Unkn0wnN4m3", email = "87839850+Unkn0wnN4m3@users.noreply.github.com" },
 ]
-description = "cli application to taking notes"
-readme = "README.md"
-version = "0.1.0"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
 dependencies = [
   "Click"
 ]
-requires-python = ">= 3.10"
-keywords = ["cli", "python-cli", "notes", "click"]
-classifiers = [
-  "Programming Language :: Python",
-  "Intended Audience :: Developers",
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "pre-commit"
 ]
 
 [project.urls]
-Homepage = "https://github.com/Unkn0wnN4m3/quicknote-cli"
-Repository = "https://github.com/Unkn0wnN4m3/quicknote-cli"
-Issues = "https://github.com/Unkn0wnN4m3/quicknote-cli/issues"
+Documentation = "https://github.com/Unkn0wnN4m3/pynote#readme"
+Issues = "https://github.com/Unkn0wnN4m3/pynote/issues"
+Source = "https://github.com/Unkn0wnN4m3/pynote"
 
 [project.scripts]
 pynote = "pynote.__main__:main"
 
-[tool.ruff.format]
-quote-style = "double"
-docstring-code-format = true
+[tool.hatch.version]
+path = "src/pynote/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pynote"]
+
+[tool.hatch.envs.devel]
+template = "ruff"
+features = ["dev"]
+
+[tool.hatch.envs.ruff]
+detached = true
+dependencies = [
+  "ruff"
+]
+
+[tool.hatch.envs.ruff.scripts]
+check-fmt = [
+  "ruff format --check"
+]
+check-lint = "ruff check"
+lint = "ruff check --fix"
+fmt = [
+  "ruff check --select I --fix",
+  "ruff format"
+]
