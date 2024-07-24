@@ -18,7 +18,7 @@ def new(title, body):
 
 
 @cli.command()
-def list():
+def show():
     click.echo("list notes")
 
 
