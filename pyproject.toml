@@ -24,15 +24,10 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = [
-  "Click"
-]
+dependencies = ["Click"]
 
 [project.optional-dependencies]
-dev = [
-  "ruff",
-  "pre-commit"
-]
+dev = ["ruff", "pre-commit"]
 
 [project.urls]
 Documentation = "https://github.com/Unkn0wnN4m3/pynote#readme"
@@ -51,19 +46,12 @@ packages = ["src/pynote"]
 [tool.hatch.envs.devel]
 features = ["dev"]
 
-[tool.hatch.envs.ruff]
+[tool.hatch.envs.util]
 detached = true
-dependencies = [
-  "ruff"
-]
+dependencies = ["ruff"]
 
-[tool.hatch.envs.ruff.scripts]
-check-fmt = [
-  "ruff format --check"
-]
+[tool.hatch.envs.util.scripts]
+check-fmt = ["ruff format --check"]
 check-lint = "ruff check"
 lint = "ruff check --fix"
-fmt = [
-  "ruff check --select I --fix",
-  "ruff format"
-]
+fmt = ["ruff check --select I --fix", "ruff format"]
